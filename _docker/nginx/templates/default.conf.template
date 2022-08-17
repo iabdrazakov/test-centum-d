@@ -1,0 +1,16 @@
+client_max_body_size 64m;
+
+server {
+  listen 8000;
+  server_name 127.0.0.1 localhost;
+  index index.php index.html index.htm;
+  root /application/public;
+
+  access_log /var/log/nginx/access.log;
+  error_log /var/log/nginx/error.log;
+
+  location / {
+    # try to serve file directly, fallback to index.php
+    try_files $uri /index.php?$args;
+  }
+}

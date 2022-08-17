@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./_docker/app/Dockerfile
+    restart: always
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./_docker/nginx/Dockerfile
+    environment:
+      APP_DOMAIN: ${APP_DOMAIN}
+    depends_on:
+      - app
+    restart: always
+
+  redis:
+    image: redis:alpine
+    restart: always
