@@ -1,5 +1,5 @@
 @if ($errors->any())
-    <ul class="alert-danger js-cms-errors-block">
+    <ul class="bg-danger text-light">
         <p>{{ trans('general.errorSave') }}</p>
         {!! implode('', $errors->all('<li >:message</li>')) !!}
     </ul>

@@ -1,5 +1,5 @@
 @if (session('url'))
-    <ul class="alert-success success-save js-alert-success">
+    <ul class="bg-success text-light">
         {{ trans('general.successSave', ['url' => session('url')]) }}
     </ul>
 @endif
