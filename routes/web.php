@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Routes\WebRoutesProvider;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+app(WebRoutesProvider::class)->register();

@@ -6,17 +6,24 @@ services:
       context: .
       dockerfile: ./_docker/app/Dockerfile
     restart: always
+    networks:
+      - tcd
 
   nginx:
     build:
       context: .
       dockerfile: ./_docker/nginx/Dockerfile
-    environment:
-      APP_DOMAIN: ${APP_DOMAIN}
     depends_on:
       - app
     restart: always
+    networks:
+      - tcd
 
   redis:
     image: redis:alpine
     restart: always
+    networks:
+      - tcd
+
+networks:
+  tcd:

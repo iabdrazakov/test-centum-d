@@ -8,7 +8,7 @@ WORKDIR /application
 RUN apk --update add nano
 
 # Install Redis
-RUN apk add pcre-dev $PHPIZE_DEPS \
+RUN apk add --no-cache pcre-dev $PHPIZE_DEPS \
         && pecl install redis \
         && docker-php-ext-enable redis.so
 
